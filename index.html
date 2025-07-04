@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susun Balok - Game Strategi Kelas Dunia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d1a26; /* Dark navy for main elements */
+            --secondary-color: #2e4a60; /* Slightly lighter dark for backgrounds */
+            --accent-color: #e74c3c; /* Striking red for accents */
+            --text-light: #ecf0f1; /* Light grey for text on dark backgrounds */
+            --text-dark: #34495e; /* Darker grey for text on light backgrounds */
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color); /* Warna latar belakang gelap yang elegan */
+            color: var(--text-light); /* Warna teks terang untuk kontras */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        header {
+            background-color: var(--primary-color); /* Warna header lebih gelap */
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 20px var(--shadow-medium);
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif; /* Font elegan untuk judul utama */
+            font-size: 3.5em; /* Ukuran lebih besar */
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 8px; /* Letter spacing lebih luas */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            color: var(--accent-color); /* Aksen warna merah */
+            text-transform: uppercase; /* Huruf kapital semua */
+        }
+
+        .marquee-section {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            margin-bottom: 0px;
+        }
+
+        .marquee-section marquee {
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: auto;
+            padding: 0px;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 2px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 0px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .video-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .intro-video {
+            width: 100%;
+            max-width: 800px;
+            height: 1000px;
+            aspect-ratio: 16 / 9;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            background-color: #000;
+            margin: 0 auto;
+            border: 1px solid var(--accent-color);
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.6em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(231, 76, 60, 0.8);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-light);
+            width: 100%;
+            background-color: var(--primary-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 20px var(--shadow-medium);
+        }
+
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 2em;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.3) translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 3em;
+                letter-spacing: 6px;
+            }
+            .container {
+                padding: 30px;
+                width: 92%;
+            }
+            .video-section h2 {
+                font-size: 2.4em;
+            }
+            .download-button {
+                font-size: 1.4em;
+                padding: 18px 40px;
+            }
+            .social-icons a {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+                letter-spacing: 5px;
+            }
+            .container {
+                padding: 25px;
+                width: 95%;
+            }
+            .video-section h2 {
+                font-size: 2em;
+            }
+            .download-button {
+                font-size: 1.2em;
+                padding: 15px 35px;
+            }
+            .social-icons {
+                gap: 20px;
+            }
+            .social-icons a {
+                font-size: 1.6em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+                letter-spacing: 3px;
+            }
+            .marquee-section {
+                font-size: 0.85em;
+                padding: 8px 0;
+            }
+            .container {
+                padding: 20px;
+                width: 85%;
+                margin-bottom: 10px;
+            }
+            .video-section h2 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            .video-section h2::after {
+                width: 100px;
+                height: 1px;
+            }
+            .intro-video {
+                max-height: 200px;
+            }
+            .download-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            footer {
+                font-size: 0.8em;
+                padding: 20px 0;
+            }
+            .social-icons {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            .social-icons a {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>•VERCEL•</h1>
+    </header>
+    <div class="marquee-section">
+        <marquee>•GAME VERCEL ADALAH GAME SUSUN BALOK MURNI TANPA MANIPULASI SISTEM. SEMUA KEMENANGAN ATAU KEKALAHAN ADALAH HASIL MUTLAK STRATEGI BERMAIN•</marquee>
+    </div>
+
+    <div class="container">
+        <section class="video-section">
+            <h2>Demonstrasi Game</h2>
+            <video class="intro-video" controls poster="https://vqmfachxnjyxwuavpgds.supabase.co/storage/v1/object/public/zaus//Thumbnail%20susunbalok.jpg">
+                <source src="https://vqmfachxnjyxwuavpgds.supabase.co/storage/v1/object/public/zaus//vidiointro.mp4" type="video/mp4">
+                Maaf, browser Anda tidak mendukung tag video.
+            </video>
+        </section>
+
+      <section class="download-section">
+            <a href="https://github.com/gamezoneone/Maxwin999/releases/download/V1.0.0/susunbalok.apk" class="download-button" download="susunbalok.apk">Unduh Aplikasi (APK)</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 VERCEL. Semua Hak Cipta Dilindungi.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/yourchannel" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://wa.me/yourphonenumber" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+</body>
+  </html>
+  
